@@ -22,9 +22,11 @@ object DataFrameBasics {
     // 查询某一列的数据：SELECT Quantity FROM table
     ordersDF.select("Quantity").show()
 
+    import spark.implicits._  // enable "$"
     // 查询某几列的数据：SELECT OrderId, Quantity*10 as Quantity2 FROM table
     ordersDF.select(
       ordersDF.col("OrderId"),
+      $"CreateTime",  // 与 ordersDF.col 等效
       (ordersDF.col("Quantity") * 10).as("Quantity2")  // 变换该列数据，并重命名列名
     ).show()
 
