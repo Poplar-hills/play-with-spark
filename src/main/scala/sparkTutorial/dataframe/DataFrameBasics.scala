@@ -20,7 +20,7 @@ object DataFrameBasics {
     df.show()         // 查询所有列的数据（默认前20条）
 
 //    selectOperations(df, spark)
-    columnOperations(df)
+    columnOperations(df, spark)
 
 //    // 聚合操作：SELECT OrderId, COUNT(1) FROM table GROUP BY Quantity
 //    df.groupBy("Quantity")  // 按 Quantity 分组，然后数每组中的条目数
@@ -31,32 +31,48 @@ object DataFrameBasics {
   }
 
   def selectOperations(df: DataFrame, spark: SparkSession): Unit = {
-    import spark.implicits._  // enables $"CreateTime" syntax
+    import spark.implicits._                 // enables $"CreateTime" syntax
+    import org.apache.spark.sql.functions._  // enables col function
 
     // 查询某一列的数据：SELECT Quantity FROM table
     df.select("Quantity").show()
 
     // 查询某几列的数据：SELECT OrderId, Quantity*10 as Quantity2 FROM table
     df.select(         // select 多列
-      df.col("OrderId"),
+      col("OrderId"),
       $"CreateTime",   // 与 ordersDF.col 等效
-      (df.col("Quantity") * 10).as("Quantity2")  // 变换该列数据，并重命名列名
+      (col("Quantity") * 10).as("Quantity2")  // 变换该列数据，并重命名列名
     ).show()
 
     // 过滤：SELECT OrderId, Quantity FROM table WHERE Quantity > 3
-    df.filter(df.col("Quantity") > 3)    // .filter() 和 .where() 等效，参数是 Columns（Columns 即表达式）
+    df.filter(col("Quantity") > 3)    // .filter() 和 .where() 等效，参数是 Columns（Columns 即表达式）
       .select("OrderId", "Quantity")   // select 可以直接选择多列（但不能像上面那样对其中某列进行变换）
       .show()
   }
 
-  def columnOperations(df: DataFrame): Unit = {
-    import org.apache.spark.sql.functions.lit  // import spark literals
+  def columnOperations(df: DataFrame, spark: SparkSession): Unit = {
+    import spark.implicits._  // enables $"CreateTime" syntax
+    import org.apache.spark.sql.functions._  // enables col, lit function
 
-    df.withColumn("numberOne", lit(1))  // add a column with literal value
+    // add a column with literal value
+    df.withColumn("numberOne", lit(1))
       .show()
 
-    df.withColumn("withinCountry", expr("ORIGIN_COUNTRY_NAME == DEST_COUNTRY_NAME"))
-      .show(2)
+    // conditionally add a column
+    val newDf = df.withColumn("Good", $"Published" === $"Censored")
+    newDf.show()
+
+    // renaming a column
+    newDf.withColumnRenamed("Good", "Excellent")
+      .show()
+
+    // removing multi columns
+    newDf.drop("Title", "CreateTime")
+      .show()
+
+    // casting a column’s type
+    newDf.withColumn("Quantity2", col("Quantity").cast("long"))
+      .printSchema()
   }
 
 }
