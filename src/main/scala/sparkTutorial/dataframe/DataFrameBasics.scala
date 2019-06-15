@@ -24,21 +24,21 @@ object DataFrameBasics {
 
     import spark.implicits._  // enable "$"
     // 查询某几列的数据：SELECT OrderId, Quantity*10 as Quantity2 FROM table
-    ordersDF.select(
+    ordersDF.select(          // select 多列
       ordersDF.col("OrderId"),
-      $"CreateTime",  // 与 ordersDF.col 等效
+      $"CreateTime",          // 与 ordersDF.col 等效
       (ordersDF.col("Quantity") * 10).as("Quantity2")  // 变换该列数据，并重命名列名
     ).show()
 
     // 过滤：SELECT OrderId, Quantity FROM table WHERE Quantity > 3
     ordersDF
-      .filter(ordersDF.col("Quantity") > 3)  // .filter() 和 .where() 等效
-      .select("OrderId", "Quantity")  // 上面查询某几列的简化写法（但不能变换）
+      .filter(ordersDF.col("Quantity") > 3)  // .filter() 和 .where() 等效，参数是 Columns（Columns 即表达式）
+      .select("OrderId", "Quantity")       // select 可以直接选择多列（但不能像上面那样对其中某列进行变换）
       .show()
 
     // 聚合：SELECT OrderId, COUNT(1) FROM table GROUP BY Quantity
     ordersDF
-      .groupBy("Quantity")
+      .groupBy("Quantity")  // 按 Quantity 分组，然后数每组中的条目数
       .count()
       .show()
 
