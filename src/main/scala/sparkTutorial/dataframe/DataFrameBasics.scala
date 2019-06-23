@@ -20,14 +20,9 @@ object DataFrameBasics {
     df.printSchema()  // 输出 DataFrame 的 schema 信息
     df.show()         // 查询所有列的数据（默认前20条）
 
-//    selectOperations(df, spark)
-//    columnOperations(df, spark)
+    selectOperations(df, spark)
+    columnOperations(df, spark)
     rowOperations(df, spark)
-
-//    // 聚合操作：SELECT OrderId, COUNT(1) FROM table GROUP BY Quantity
-//    df.groupBy("Quantity")  // 按 Quantity 分组，然后数每组中的条目数
-//      .count()
-//      .show()
 
     spark.stop()
   }
