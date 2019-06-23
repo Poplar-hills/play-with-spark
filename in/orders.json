@@ -3,6 +3,7 @@
     "OrderId": "9877",
     "Title": "Building a Scalable Data",
     "Quantity": 10,
+    "Price": 93,
     "CreateTime": "2019-01-30",
     "Published": true,
     "Censored": true
@@ -11,6 +12,7 @@
     "OrderId": "1638",
     "Title": "Getting a Scalable",
     "Quantity": 30,
+    "Price": 180,
     "CreateTime": "2019-03-30",
     "Published": false,
     "Censored": true
@@ -19,6 +21,7 @@
     "OrderId": "1638",
     "Title": "Data Architecture",
     "Quantity": 20,
+    "Price": 232,
     "CreateTime": "2019-02-30",
     "Published": true,
     "Censored": false
@@ -27,6 +30,7 @@
     "OrderId": "1638",
     "Title": "Streaming Systems",
     "Quantity": 10,
+    "Price": 1000,
     "CreateTime": "2019-01-30",
     "Published": false,
     "Censored": false
@@ -35,6 +39,7 @@
     "OrderId": "0ad9",
     "Title": "Looping a List",
     "Quantity": 30,
+    "Price": 390,
     "CreateTime": "2019-03-30",
     "Published": false,
     "Censored": true
@@ -43,6 +48,7 @@
     "OrderId": "0ad9",
     "Title": "Kafka in a Nut Shell",
     "Quantity": 20,
+    "Price": 201,
     "CreateTime": "2019-02-30",
     "Published": true,
     "Censored": true
@@ -51,6 +57,7 @@
     "OrderId": "0ad9",
     "Title": "Radar Systems",
     "Quantity": 10,
+    "Price": 18,
     "CreateTime": "2019-01-30",
     "Published": false,
     "Censored": false
@@ -59,6 +66,7 @@
     "OrderId": "9b2b",
     "Title": "From 1 to 100",
     "Quantity": 30,
+    "Price": 168,
     "CreateTime": "2019-03-30",
     "Published": true,
     "Censored": false
@@ -67,6 +75,7 @@
     "OrderId": "bc76",
     "Title": "Cracking a Data Interview",
     "Quantity": 30,
+    "Price": 54,
     "CreateTime": "2019-03-30",
     "Published": true,
     "Censored": true
@@ -75,6 +84,7 @@
     "OrderId": "bc76",
     "Title": "The Data Warehouse Toolkit",
     "Quantity": 30,
+    "Price": 530,
     "CreateTime": "2019-03-30",
     "Published": true,
     "Censored": false
@@ -83,6 +93,7 @@
     "OrderId": "a643",
     "Title": "Building a Scalable Data",
     "Quantity": 10,
+    "Price": 111,
     "CreateTime": "2019-01-30",
     "Published": false,
     "Censored": true
@@ -91,6 +102,7 @@
     "OrderId": "a643",
     "Title": "The Data Warehouse Toolkit",
     "Quantity": 10,
+    "Price": 180,
     "CreateTime": "2019-01-30",
     "Published": true,
     "Censored": true
@@ -99,6 +111,7 @@
     "OrderId": "6e55",
     "Title": "Building a Small Program",
     "Quantity": 10,
+    "Price": 810,
     "CreateTime": "2019-01-30",
     "Published": true,
     "Censored": false
@@ -107,6 +120,7 @@
     "OrderId": "6e55",
     "Title": "The White House",
     "Quantity": 40,
+    "Price": 40,
     "CreateTime": "2019-04-30",
     "Published": false,
     "Censored": true
@@ -115,6 +129,7 @@
     "OrderId": "3b6a",
     "Title": "Building a Large Spaceship",
     "Quantity": 30,
+    "Price": 3,
     "CreateTime": "2019-03-30",
     "Published": true,
     "Censored": false
@@ -123,6 +138,7 @@
     "OrderId": "3b6a",
     "Title": "How To Be a Dad",
     "Quantity": 90,
+    "Price": 1000,
     "CreateTime": "2019-09-30",
     "Published": true,
     "Censored": true
